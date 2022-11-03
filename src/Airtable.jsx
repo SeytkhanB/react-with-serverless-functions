@@ -2,14 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const url = `/api/products`;
-
 export const Airtable = () => {
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
     try {
-      const { data } = await axios.get(url);
+      const { data } = await axios.get("/api/products");
       setProducts(data);
     } catch (err) {
       throw new Error("Couldn't fetch the products!");
